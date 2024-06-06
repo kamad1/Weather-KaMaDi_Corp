@@ -8,19 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		81A9086C2C099FCA0053BFC8 /* Weather_KaMaDi_CorpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9086B2C099FCA0053BFC8 /* Weather_KaMaDi_CorpApp.swift */; };
-		81A9086E2C099FCA0053BFC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9086D2C099FCA0053BFC8 /* ContentView.swift */; };
+		81A9086E2C099FCA0053BFC8 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9086D2C099FCA0053BFC8 /* WeatherView.swift */; };
 		81A908702C099FCA0053BFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A9086F2C099FCA0053BFC8 /* Assets.xcassets */; };
 		81A908732C099FCA0053BFC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A908722C099FCA0053BFC8 /* Preview Assets.xcassets */; };
 		81A9087A2C09A0AB0053BFC8 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908792C09A0AB0053BFC8 /* ViewModifier.swift */; };
+		81A908B32C1199870053BFC8 /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908B22C1199870053BFC8 /* CurrentWeatherData.swift */; };
+		81A908B62C1199D50053BFC8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908B52C1199D50053BFC8 /* WeatherViewModel.swift */; };
+		81A908B92C119B030053BFC8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908B82C119B030053BFC8 /* NetworkService.swift */; };
+		81A908BB2C119DC30053BFC8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908BA2C119DC30053BFC8 /* HTTPMethod.swift */; };
+		81A908BD2C119DD50053BFC8 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908BC2C119DD50053BFC8 /* URLManager.swift */; };
+		81A908BF2C119DEE0053BFC8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908BE2C119DEE0053BFC8 /* Endpoint.swift */; };
+		81A908C32C11A0570053BFC8 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908C22C11A0560053BFC8 /* HTTPError.swift */; };
+		81A908C52C11A0D10053BFC8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A908C42C11A0D00053BFC8 /* ParsingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81A908682C099FCA0053BFC8 /* Weather-KaMaDi_Corp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-KaMaDi_Corp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A9086B2C099FCA0053BFC8 /* Weather_KaMaDi_CorpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_KaMaDi_CorpApp.swift; sourceTree = "<group>"; };
-		81A9086D2C099FCA0053BFC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		81A9086D2C099FCA0053BFC8 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		81A9086F2C099FCA0053BFC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81A908722C099FCA0053BFC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		81A908792C09A0AB0053BFC8 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
+		81A908B22C1199870053BFC8 /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
+		81A908B52C1199D50053BFC8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		81A908B82C119B030053BFC8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		81A908BA2C119DC30053BFC8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		81A908BC2C119DD50053BFC8 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		81A908BE2C119DEE0053BFC8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		81A908C22C11A0560053BFC8 /* HTTPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		81A908C42C11A0D00053BFC8 /* ParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				81A9086B2C099FCA0053BFC8 /* Weather_KaMaDi_CorpApp.swift */,
+				81A908B42C11998C0053BFC8 /* Model */,
 				81A9087C2C09A0E20053BFC8 /* View */,
-				81A9087B2C09A0D10053BFC8 /* Modifire */,
+				81A908B72C1199DB0053BFC8 /* ViewModel */,
+				81A908C12C119E160053BFC8 /* Services */,
 				81A9086F2C099FCA0053BFC8 /* Assets.xcassets */,
 				81A908712C099FCA0053BFC8 /* Preview Content */,
 			);
@@ -81,9 +99,47 @@
 		81A9087C2C09A0E20053BFC8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				81A9086D2C099FCA0053BFC8 /* ContentView.swift */,
+				81A9086D2C099FCA0053BFC8 /* WeatherView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		81A908B42C11998C0053BFC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81A908B22C1199870053BFC8 /* CurrentWeatherData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81A908B72C1199DB0053BFC8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				81A908B52C1199D50053BFC8 /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		81A908C02C119DFC0053BFC8 /* Networcking */ = {
+			isa = PBXGroup;
+			children = (
+				81A908C22C11A0560053BFC8 /* HTTPError.swift */,
+				81A908BA2C119DC30053BFC8 /* HTTPMethod.swift */,
+				81A908BE2C119DEE0053BFC8 /* Endpoint.swift */,
+				81A908BC2C119DD50053BFC8 /* URLManager.swift */,
+				81A908B82C119B030053BFC8 /* NetworkService.swift */,
+				81A908C42C11A0D00053BFC8 /* ParsingService.swift */,
+			);
+			path = Networcking;
+			sourceTree = "<group>";
+		};
+		81A908C12C119E160053BFC8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				81A9087B2C09A0D10053BFC8 /* Modifire */,
+				81A908C02C119DFC0053BFC8 /* Networcking */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81A9086E2C099FCA0053BFC8 /* ContentView.swift in Sources */,
+				81A908B92C119B030053BFC8 /* NetworkService.swift in Sources */,
+				81A908BF2C119DEE0053BFC8 /* Endpoint.swift in Sources */,
+				81A908BD2C119DD50053BFC8 /* URLManager.swift in Sources */,
+				81A908B62C1199D50053BFC8 /* WeatherViewModel.swift in Sources */,
+				81A908BB2C119DC30053BFC8 /* HTTPMethod.swift in Sources */,
+				81A908B32C1199870053BFC8 /* CurrentWeatherData.swift in Sources */,
+				81A9086E2C099FCA0053BFC8 /* WeatherView.swift in Sources */,
 				81A9087A2C09A0AB0053BFC8 /* ViewModifier.swift in Sources */,
+				81A908C52C11A0D10053BFC8 /* ParsingService.swift in Sources */,
+				81A908C32C11A0570053BFC8 /* HTTPError.swift in Sources */,
 				81A9086C2C099FCA0053BFC8 /* Weather_KaMaDi_CorpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
