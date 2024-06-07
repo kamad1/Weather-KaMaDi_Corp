@@ -12,6 +12,7 @@ class WeatherViewModel: ObservableObject {
     // currentWeather происходит все на главном потоке и обновлять все нужно на главном потоке
     // и это делаем в func getData()
     @Published var currentWeather: CurrentWeatherData?
+    @Published var forecast = ForecastData(list: [], cod: "", message: 0)
     
     // создаем переменные для получения данных
     var temp: String { "\(Int(currentWeather?.main.temp ?? 0)) °С" }
@@ -19,37 +20,49 @@ class WeatherViewModel: ObservableObject {
     var tempMax: String { "\(Int(currentWeather?.main.tempMax ?? 0)) °С" }
     var pressure: String { "\(Int(currentWeather?.main.pressure ?? 0) * 750062 / 1000000) мм.рт.ст" }
     var humidity: String { "Влажность \(Int(currentWeather?.main.humidity ?? 0))%" }
-    var windSpeed: Int { Int(currentWeather?.wind.speed ?? 0) }
-    var windDirection: String {
-        guard let degrees = currentWeather?.wind.deg else { return "" }
-        switch degrees {
-        case 22.5...67.5: return "СВ"
-        case 67.5...112.5: return "В"
-        case 112.5...157.5 : return "ЮВ"
-        case 157.5...202.5: return "Ю"
-        case 202.5...247.5: return "ЮЗ"
-        case 247.5...292.5: return "З"
-        case 292.5...337.5: return "СЗ"
-        default: return "С"
+    var windDescription: String { currentWeather?.wind.windDescription ?? "" }
+    
+    var minimumForecastTemp: Int {
+        let mins = forecast.list.map { item in
+            item.main.tempMin
         }
+        
+        let min = mins.min()
+        return Int(min ?? 0)
     }
-    var windDescription: String {"\(windDirection) \(windSpeed) м/с"}
+    
+    var maximumForecastTemp: Int {
+        let maxes = forecast.list.map { item in
+            item.main.tempMax
+        }
+        
+        let max = maxes.max()
+        return Int(max ?? 0)
+    }
     
     init() {
         getData()
     }
     // Тут мы идем сразу к нашему гонцу NetworkService
     func getData() {
-        NetworkService.shared.getCurrentWeather(city: cityName) { result in
-            switch result {
-            case .success(let weatherData):
-                // Вся работа с сетью нужно делать не на главном потоке
-                DispatchQueue.main.async { self.currentWeather = weatherData }
-            case .failure(let error):
-                print(error.localizedDescription)
+        Task {
+            let currentWeather = try await AsyncNetworkService.shared.getCurrentWeather(city: cityName)
+            // Вся работа с сетью нужно делать не на главном потоке
+            DispatchQueue.main.async {
+                self.currentWeather = currentWeather
+            }
+        }
+        
+        Task {
+            let forecast = try await AsyncNetworkService.shared.getForecast(city: cityName)
+            // Вся работа с сетью нужно делать не на главном потоке
+            DispatchQueue.main.async {
+                self.forecast = forecast
             }
         }
     }
     
 }
+
+
 

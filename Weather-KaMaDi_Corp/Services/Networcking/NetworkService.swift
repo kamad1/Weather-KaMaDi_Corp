@@ -42,6 +42,28 @@ class NetworkService {
             // ниже resume нужен что бы подтолкнуть нашу сессию
         }.resume()
     }
+    
+    //Ниже повторяем все по аналогии для таблицы как наверху
+    func getForecast(city: String,
+                     completion: @escaping (Result<ForecastData,
+                                            Error>) -> ()) {
+        guard let url = URLManager.shared.createURL(city: city, endpoint: .forecast) else {
+            completion(.failure(HTTPError.invalidURL))
+            return
+        }
+        
+        session.dataTask(with: url) { data, response, error in
+            guard let data,
+                  let response else {
+                if let error { completion(.failure(error)) }
+                return
+            }
+            
+            let forecast = ParsingService.shared.forecast(fromData: data)
+            
+            completion(.success(forecast))
+        }.resume()
+    }
 }
     
 

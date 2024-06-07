@@ -29,10 +29,13 @@ struct WeatherView: View {
                 Text(viewModel.windDescription).font(.regular)
             }
             .modifier(GlassBG())
-            List {
-                
+            ScrollView {
+                ForEach(viewModel.forecast.list, id: \.dt) { item in
+                    ForecastCell(viewModel: .init(forecast: item))
+                        .environmentObject(viewModel)
+                }
             }
-            .listStyle(.plain)
+            .frame(width: UIScreen.main.bounds.width * 0.8)
             .modifier(GlassBG())
         }
         // для изменения города в текстфилде onChange получаем новые данные каждый раз когда меняется город

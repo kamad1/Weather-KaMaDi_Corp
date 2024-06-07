@@ -19,5 +19,9 @@ class ParsingService {
     func currentWeather(fromData data: Data) -> CurrentWeatherData {
         try! decoder.decode(CurrentWeatherData.self, from: data)
     }
+    // Принимает и возвращает нужную модель для таблицы 
+    func forecast(fromData data: Data) -> ForecastData {
+        try! decoder.decode(ForecastData.self, from: data)
+    }
     
 }
