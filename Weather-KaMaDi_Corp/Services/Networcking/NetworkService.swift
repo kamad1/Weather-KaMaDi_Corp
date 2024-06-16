@@ -36,7 +36,10 @@ class NetworkService {
 //            но прочитать их не могу так как они в формате например JSON и мне их надо приобразовать
 //            создаем парсинг ParsingService
             // Получаем данные с парсинга сервиса 
-            let weather = ParsingService.shared.currentWeather(fromData: data)
+            guard let weather = ParsingService.shared.currentWeather(fromData: data) else {
+                completion(.failure(HTTPError.invalidDecoding))
+                return
+            }
             // передаем в комплишен с успешным кейсом
             completion(.success(weather))
             // ниже resume нужен что бы подтолкнуть нашу сессию
@@ -59,7 +62,10 @@ class NetworkService {
                 return
             }
             
-            let forecast = ParsingService.shared.forecast(fromData: data)
+            guard let forecast = ParsingService.shared.forecast(fromData: data) else {
+                completion(.failure(HTTPError.invalidDecoding))
+                return
+            }
             
             completion(.success(forecast))
         }.resume()

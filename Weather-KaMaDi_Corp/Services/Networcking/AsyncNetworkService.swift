@@ -16,7 +16,7 @@ class AsyncNetworkService {
                                                     endpoint: .currentWeather)
         else { throw HTTPError.invalidURL }
         let (data, _) = try await session.data(from: url)
-        let currentWeather = ParsingService.shared.currentWeather(fromData: data)
+        guard let currentWeather = ParsingService.shared.currentWeather(fromData: data) else {throw HTTPError.invalidDecoding}
         return currentWeather
     }
     
@@ -27,7 +27,7 @@ class AsyncNetworkService {
         }
         
         let (data, _) = try await session.data(from: url)
-        let forecast = ParsingService.shared.forecast(fromData: data)
+       guard let forecast = ParsingService.shared.forecast(fromData: data) else {throw HTTPError.invalidDecoding}
         return forecast
     }
 }
